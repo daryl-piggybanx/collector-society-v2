@@ -16,15 +16,13 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"],
-      "~/assets/*": ["./assets/*"],
-      "~/components/*": ["./components/*"],
-      "~/hooks/*": ["./hooks/*"],
-      "~/lib/*": ["./lib/*"],
-      "~/pages/*": ["./pages/*"],
-      "~/types/*": ["./types/*"],
-      "~/utils/*": ["./utils/*"],
-      "~/routes/*": ["./routes/*"],
-      "~/integrations/*": ["./integrations/*"],
+      "~/assets/*": ["./src/assets/*"],
+      "~/components/*": ["./src/components/*"],
+      "~/hooks/*": ["./src/hooks/*"],
+      "~/lib/*": ["./src/lib/*"],
+      "~/utils/*": ["./src/utils/*"],
+      "~/routes/*": ["./src/routes/*"],
+      "~/integrations/*": ["./src/integrations/*"],
     },
     "noEmit": true
   }
