@@ -22,7 +22,7 @@
       "~/lib/*": ["./src/lib/*"],
       "~/utils/*": ["./src/utils/*"],
       "~/routes/*": ["./src/routes/*"],
-      "~/integrations/*": ["./src/integrations/*"],
+      "~/integrations/*": ["./src/integrations/*"]
     },
     "noEmit": true
   }
