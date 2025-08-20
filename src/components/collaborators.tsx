@@ -44,7 +44,7 @@ function AnimatedCounter({ value, suffix = "", duration = 2, className = "" }: C
     }, [motionValue, isInView, value]);
 
     useEffect(() => {
-        springValue.on("change", (latest) => {
+        springValue.on("change", (latest: number) => {
             if (ref.current) {
                 ref.current.textContent = Math.floor(latest).toLocaleString() + suffix;
             }

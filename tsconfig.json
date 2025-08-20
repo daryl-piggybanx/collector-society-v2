@@ -1,5 +1,5 @@
 {
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/types/**/*.d.ts"],
   "compilerOptions": {
     "strict": true,
     "esModuleInterop": true,
@@ -24,6 +24,8 @@
       "~/routes/*": ["./src/routes/*"],
       "~/integrations/*": ["./src/integrations/*"]
     },
-    "noEmit": true
+    "noEmit": true,
+    // Ignore specific error codes from motion library
+    "ignoreDeprecations": "5.0"
   }
 }

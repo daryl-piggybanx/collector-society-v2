@@ -25,7 +25,7 @@ export default function SunriseBackground() {
     const linesOpacity = useTransform(scrollYProgress, [0.4, 0.5], [1, 0])
 
     // Use useMotionValueEvent for motion value changes (immediate, no delay)
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    useMotionValueEvent(scrollYProgress, "change", (latest: number) => {
       // Logo transitions to lighter colors as background gets darker (0-0.2 scroll range)
       if (latest > 0.1) {
         // Transition from dark to light - matches overlay darkening (0-20% scroll)
@@ -94,7 +94,7 @@ export default function SunriseBackground() {
           <motion.div
             className="absolute left-1/2 top-1/2 w-[500px] h-[500px] pointer-events-none"
             style={{
-              y: useTransform(logoY, (value) => `calc(-50% + ${value}%)`),
+              y: useTransform(logoY, (value: number) => `calc(-50% + ${value}%)`),
               x: "-50%",
               zIndex: 20,
             }}
@@ -137,7 +137,7 @@ export default function SunriseBackground() {
                   preserveAspectRatio="none"
                   className="absolute w-full h-px"
                   style={{
-                    y: useTransform(position, (value) => `calc(50% + ${value}%)`),
+                    y: useTransform(position, (value: number) => `calc(50% + ${value}%)`),
                   }}
                 >
                   <rect width="100" height="1" fill={linesColor} />
@@ -163,7 +163,7 @@ export default function SunriseBackground() {
                   preserveAspectRatio="none"
                   className="absolute w-full h-px"
                   style={{
-                    y: useTransform(position, (value) => `calc(50% + ${value}%)`),
+                    y: useTransform(position, (value: number) => `calc(50% + ${value}%)`),
                   }}
                 >
                   <rect width="100" height="1" fill={linesColor} />

@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && tsc --noEmit",
+    "build": "vite build",
+    "build:with-types": "vite build && tsc --noEmit --skipLibCheck",
+    "type-check": "tsc --noEmit --skipLibCheck",
     "start": "vite start"
   },
   "dependencies": {

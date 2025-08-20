@@ -10,7 +10,13 @@ yarn.lock
 /build/
 /api/
 /server/build
-/public/build# Sentry Config File
+/public/build
+
+# Build artifacts
+.nitro/
+.tanstack/
+
+# Sentry Config File
 .env.sentry-build-plugin
 /test-results/
 /playwright-report/
