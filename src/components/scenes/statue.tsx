@@ -1,4 +1,4 @@
-import { Suspense, useRef, useEffect, useState } from 'react'
+import { Suspense, useRef, useEffect } from 'react'
 import { Canvas, useFrame, type ThreeElements } from '@react-three/fiber'
 import { useGLTF, SoftShadows, Html, CameraControls, RoundedBox } from '@react-three/drei'
 import { easing } from 'maath'
@@ -32,8 +32,7 @@ function orientationToRotation(orientation: DeviceOrientationData) {
 }
 
 export default function StatueScene() {
-  const { isSupported, hasPermission, requestPermission, orientation, error } = useDeviceOrientation()
-  const [manualPermissionRequested, setManualPermissionRequested] = useState(false)
+  const { isSupported, hasPermission, requestPermission } = useDeviceOrientation()
   
   // Auto-enable device control when available
   useEffect(() => {
@@ -52,12 +51,7 @@ export default function StatueScene() {
     enableDeviceControl()
   }, [isSupported, requestPermission])
 
-  const handleManualPermissionRequest = async () => {
-    setManualPermissionRequested(true)
-    await requestPermission()
-  }
   return (
-    <div className="relative w-full h-full">
       <Canvas 
         shadows="basic" 
         eventSource={document.getElementById('root') || undefined} 
@@ -89,36 +83,6 @@ export default function StatueScene() {
         maxAzimuthAngle={Math.PI / 4} 
       />
       </Canvas>
-
-            {/* iOS Permission Button */}
-            {isSupported && hasPermission === null && !manualPermissionRequested && (
-        <div className="absolute top-4 right-4">
-          <button 
-            onClick={handleManualPermissionRequest}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700"
-          >
-            Enable Tilt
-          </button>
-        </div>
-      )}
-      
-      {/* Debug Panel - Remove this after debugging */}
-      <div className="absolute top-4 left-4 bg-black bg-opacity-75 text-white p-4 rounded-lg text-xs max-w-xs">
-        <div className="mb-2 font-bold">Device Orientation Debug</div>
-        <div>Supported: {isSupported ? '✅' : '❌'}</div>
-        <div>Permission: {hasPermission === null ? '⏳' : hasPermission ? '✅' : '❌'}</div>
-        <div>Active: {(hasPermission && isSupported) ? '✅' : '❌'}</div>
-        {error && <div className="text-red-300">Error: {error}</div>}
-        <hr className="my-2 border-gray-500" />
-        <div>Alpha: {orientation.alpha?.toFixed(1) ?? 'null'}°</div>
-        <div>Beta: {orientation.beta?.toFixed(1) ?? 'null'}°</div>
-        <div>Gamma: {orientation.gamma?.toFixed(1) ?? 'null'}°</div>
-        <hr className="my-2 border-gray-500" />
-        <div className="text-xs text-gray-300 mt-2">
-          Tilt your device to see values change
-        </div>
-      </div>
-    </div>
   )
 }
 
