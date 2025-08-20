@@ -73,7 +73,7 @@ export default function SunriseBackground() {
           />
 
           {/* Hero text wrap */}
-          <div className="relative z-10 h-full flex flex-col items-center justify-center px-6">
+          <div className="relative z-10 h-full flex flex-col items-center justify-start sm:justify-center px-6 py-40 sm:py-0">
             {/* Title */}
             <div className="flex justify-start w-full margin-auto mb-8 pl-8 md:pl-20 lg:pl-40">
               <motion.h1 

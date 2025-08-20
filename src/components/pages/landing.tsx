@@ -125,7 +125,7 @@ export default function LandingPage() {
 
 
     <main className="absolute z-10 inset-0 py-8 sm:px-8 md:py-12 md:px-12 lg:py-20 lg:px-20 flex flex-col-reverse sm:flex-row">
-      <nav className="flex items-center justify-center sm:items-end sm:justify-start">
+      <nav className="flex items-center justify-center sm:items-end sm:justify-start mb-10 sm:mb-0">
         <ul className="flex flex-col gap-4 sm:gap-5 md:gap-4 text-center sm:text-left">
           {navItems.map((item, index) => (
             <li

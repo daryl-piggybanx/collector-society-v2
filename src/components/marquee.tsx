@@ -55,7 +55,7 @@ type MarqueeCardProps<T extends MarqueeItem> = {
 
 function MarqueeCard<T extends MarqueeItem>({ item, isMobile = false }: MarqueeCardProps<T>) {
   return (
-    <div className={`flex-shrink-0 ${isMobile ? "w-full px-4" : "w-80 mx-4"}`}>
+    <div className={`flex-shrink-0 ${isMobile ? "w-40 px-2" : "w-80 mx-4"}`}>
       <a href={item.href} className="block group transition-transform duration-300 hover:scale-105">
         <div className="relative">
           <div className="aspect-[3/2] relative flex items-center justify-center h-full">
@@ -63,7 +63,7 @@ function MarqueeCard<T extends MarqueeItem>({ item, isMobile = false }: MarqueeC
               src={item.image || "/placeholder.svg"}
               alt={item.alt}
               className="object-cover transition-transform duration-300 group-hover:scale-110"
-              sizes={isMobile ? "100vw" : "320px"}
+              sizes={isMobile ? "160px" : "320px"}
             />
           </div>
         </div>

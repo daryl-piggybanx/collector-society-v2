@@ -156,7 +156,7 @@ export function NewCollectorForm() {
   return (
     <div className="w-full max-w-3xl">
       <motion.div
-        className="bg-red-950/30 backdrop-blur-sm border border-red-400/20 rounded-2xl shadow-xl overflow-hidden relative pt-4"
+        className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl shadow-xl overflow-hidden relative pt-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -220,7 +220,7 @@ export function NewCollectorForm() {
                 <Button
                   variant="outline"
                   onClick={handleBack}
-                  className="flex items-center gap-2 bg-red-950/40 border-red-400/30 text-red-100 hover:bg-red-800/50 hover:text-red-50 cursor-pointer"
+                  className="flex items-center gap-2 bg-white/40 border-white/30 text-white/80 hover:bg-white/50 hover:text-white cursor-pointer"
                 >
                   <ChevronLeft size={16} />
                   Back
@@ -231,7 +231,7 @@ export function NewCollectorForm() {
                 <Button
                   onClick={handleNext}
                   disabled={isNextDisabled()}
-                  className="ml-auto flex items-center gap-2 bg-red-600 hover:bg-red-500 cursor-pointer"
+                  className="ml-auto flex items-center gap-2 bg-white/60 hover:bg-white/50 cursor-pointer"
                 >
                   Next
                   <ChevronRight size={16} />
@@ -242,7 +242,7 @@ export function NewCollectorForm() {
                 <Button
                   onClick={handleSubmit}
                   disabled={isNextDisabled() || isSubmitting}
-                  className="ml-auto flex items-center gap-2 bg-red-600 hover:bg-red-500 text-red-50 cursor-pointer"
+                  className="ml-auto flex items-center gap-2 bg-white/60 hover:bg-white/50 text-white/80 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>
@@ -265,7 +265,7 @@ export function NewCollectorForm() {
         {!isComplete && (
           <div className="px-8 pb-6">
             <Progress value={progressPercentage} className="h-2" />
-            <div className="text-xs text-red-200/80 mt-2">
+            <div className="text-xs text-white/80 mt-2">
               Step {currentPhase} of {totalPhases}
             </div>
           </div>

@@ -48,20 +48,20 @@ export default function CommunityRules({ formData, updateFormData, rules }: Comm
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" exit="exit">
       <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6">
-        <ScrollText size={28} className="text-red-300" />
-        <h2 className="text-2xl font-bold text-red-100">
+        <ScrollText size={28} className="text-white" />
+        <h2 className="text-2xl font-bold text-white">
           {isReservationRoute ? "Before you continue" : formData.is_returning_collector ? "Before you continue" : "Before we get started"}
         </h2>
       </motion.div>
 
-      <motion.p variants={itemVariants} className="text-lg mb-8 text-red-100/90">
+      <motion.p variants={itemVariants} className="text-lg mb-8 text-white/90">
         {isReservationRoute 
           ? "Please check the boxes below to confirm you’ve read and understand the guidelines for this collection."
           : formData.is_returning_collector ? "Here is a reminder of our community guidelines"
           : "Please check the boxes below to confirm you've read and understand the community guidelines."}
       </motion.p>
 
-      <motion.div variants={itemVariants} className="bg-red-950/50 rounded-lg p-6 border border-red-400/30">
+      <motion.div variants={itemVariants} className="bg-white/10 rounded-lg p-6 border border-white/30">
         <ul className="space-y-4">
           {rules.map((rule, index) => (
             <motion.li
@@ -78,9 +78,9 @@ export default function CommunityRules({ formData, updateFormData, rules }: Comm
                 id={`rule-${index}`}
                 checked={formData.rules_accepted[index]}
                 onCheckedChange={(checked) => handleRuleCheck(index, checked === true)}
-                className="mt-1 data-[state=checked]:bg-red-500 data-[state=checked]:text-white border-red-400"
+                className="mt-1 data-[state=checked]:bg-white data-[state=checked]:text-white border-white"
               />
-              <label htmlFor={`rule-${index}`} className="text-red-100/90 cursor-pointer">
+              <label htmlFor={`rule-${index}`} className="text-white/90 cursor-pointer">
                 {rule}
               </label>
             </motion.li>
@@ -91,7 +91,7 @@ export default function CommunityRules({ formData, updateFormData, rules }: Comm
       <motion.div
         variants={itemVariants}
         className={`mt-6 flex items-center justify-center p-3 rounded-md transition-all ${
-          allRulesAccepted ? "bg-green-900/30 text-green-300" : "bg-red-950/50 text-red-300/50"
+          allRulesAccepted ? "bg-white/30 text-white" : "bg-white/10 text-white/50"
         }`}
       >
         <Check size={18} className="mr-2" />
