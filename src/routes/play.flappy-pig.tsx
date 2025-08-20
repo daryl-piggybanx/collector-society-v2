@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import FlappyPigGame from '@/components/games/flappy-pig'
-import ParticleTwinkleBackground from '@/components/particle-background-twinkle'
+import FlappyPigGame from '~/components/games/flappy-pig'
+import ParticleTwinkleBackground from '~/components/particle-background-twinkle'
 
 export const Route = createFileRoute('/play/flappy-pig')({
   component: RouteComponent,

@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { ReservationForm } from '@/components/form/reservation'
-import ParticleTwinkleBackground from '@/components/particle-background-twinkle'
+import { ReservationForm } from '~/components/form/reservation'
+import ParticleTwinkleBackground from '~/components/particle-background-twinkle'
 
 export const Route = createFileRoute('/collector/reservation')({
   component: RouteComponent,

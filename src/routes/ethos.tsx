@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import Ethos from '@/components/pages/ethos'
+import Ethos from '~/components/pages/ethos'
 
 export const Route = createFileRoute('/ethos')({
   component: RouteComponent,

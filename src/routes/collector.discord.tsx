@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { VerificationCollectorForm } from '@/components/form/verification'
-import ParticleTwinkleBackground from '@/components/particle-background-twinkle'
+import { VerificationCollectorForm } from '~/components/form/verification'
+import ParticleTwinkleBackground from '~/components/particle-background-twinkle'
 
 export const Route = createFileRoute('/collector/discord')({
   component: RouteComponent,

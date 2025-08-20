@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { UpdateProfileForm } from '@/components/form/update'
-import ParticleTwinkleBackground from '@/components/particle-background-twinkle'
+import { UpdateProfileForm } from '~/components/form/update'
+import ParticleTwinkleBackground from '~/components/particle-background-twinkle'
 
 export const Route = createFileRoute('/collector/update')({
   component: RouteComponent,

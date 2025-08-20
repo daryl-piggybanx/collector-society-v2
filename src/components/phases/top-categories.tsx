@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react"
 import { Target, Check, Trophy, Music, Sparkles, Gamepad2, Film, Palette, Car, ChevronDown, Clapperboard, Warehouse } from "lucide-react"
 import { MdCatchingPokemon } from "react-icons/md";
 import { PiFlyingSaucer } from "react-icons/pi";
-import type { FormData } from "@/components/form/types"
+import type { FormData } from "~/components/form/types"
 
 interface Preference {
   name: string

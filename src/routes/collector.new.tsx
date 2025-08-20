@@ -1,12 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Suspense, lazy, useEffect, useState } from 'react'
 
-import { NewCollectorForm } from '@/components/form/new'
-import ParticleBackground from '@/components/particle-background'
-import ParticleTwinkleBackground from '@/components/particle-background-twinkle'
-// import SmokeEffectBackground from "@/components/smoke-effect-background"
+import { NewCollectorForm } from '~/components/form/new'
+import ParticleBackground from '~/components/particle-background'
+import ParticleTwinkleBackground from '~/components/particle-background-twinkle'
+// import SmokeEffectBackground from "~/components/smoke-effect-background"
 
-const SmokeEffectBackground = lazy(() => import('@/components/smoke-effect-background'))
+const SmokeEffectBackground = lazy(() => import('~/components/smoke-effect-background'))
 
 export const Route = createFileRoute('/collector/new')({
   component: RouteComponent,

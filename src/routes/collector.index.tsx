@@ -1,11 +1,11 @@
 
-import ParticleTwinkleBackground from '@/components/particle-background-twinkle'
+import ParticleTwinkleBackground from '~/components/particle-background-twinkle'
 import { createFileRoute } from '@tanstack/react-router'
-import RedirectButtons from '@/components/redirect-buttons'
-import ActionButtons from '@/components/action-buttons'
-import SocialIcons from '@/components/social-icons'
+import RedirectButtons from '~/components/redirect-buttons'
+import ActionButtons from '~/components/action-buttons'
+import SocialIcons from '~/components/social-icons'
 
-import StatueScene from '@/components/scenes/statue'
+import StatueScene from '~/components/scenes/statue'
 
 export const Route = createFileRoute('/collector/')({
   component: RouteComponent,

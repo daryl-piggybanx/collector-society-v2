@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import { Check, ScrollText } from "lucide-react"
-import { Checkbox } from "@/components/ui/checkbox"
-import type { FormData } from "@/components/form/types"
+import { Checkbox } from "~/components/ui/checkbox"
+import type { FormData } from "~/components/form/types"
 import { useLocation } from "@tanstack/react-router"
 
 interface CommunityRulesProps {

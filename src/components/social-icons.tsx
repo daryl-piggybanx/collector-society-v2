@@ -1,7 +1,7 @@
 "use client"
 
 import { TbBrandDiscord } from "react-icons/tb";
-import { useMobile } from "@/hooks/use-mobile"
+import { useMobile } from "~/hooks/use-mobile"
 import { FaInstagram } from "react-icons/fa";
 import { motion } from "motion/react";
 

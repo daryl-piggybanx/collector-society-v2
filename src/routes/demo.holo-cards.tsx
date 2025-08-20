@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import HolographicCard from '@/components/holographic-card';
+import HolographicCard from '~/components/holographic-card';
 
 export const Route = createFileRoute('/demo/holo-cards')({
   component: RouteComponent,
