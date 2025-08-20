@@ -88,7 +88,7 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
       if (isHovered) {
         return {
           duration: 2,
-          ease: [0.4, 0, 0.2, 1],
+          ease: "easeInOut",
           times: [0, 0.15, 0.25, 0.4, 0.55, 0.7, 0.8, 0.9, 1],
           repeat: Number.POSITIVE_INFINITY,
           repeatDelay: 0.5,
@@ -96,15 +96,15 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
       } else if (hasLoaded) {
         return {
           duration: 1,
-          ease: [0.4, 0, 0.2, 1],
-          repeat: 0, // No repeat on load
+          ease: "easeInOut",
+          repeat: 0,
         }
       }
     } else if (icon === "home") {
       if (isHovered) {
         return {
           duration: 2.2,
-          ease: [0.25, 0.1, 0.25, 1],
+          ease: "easeInOut",
           times: [0, 0.12, 0.25, 0.38, 0.5, 0.62, 0.75, 0.88, 1],
           repeat: Number.POSITIVE_INFINITY,
           repeatDelay: 0.3,
@@ -112,12 +112,12 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
       } else if (hasLoaded) {
         return {
           duration: 1.2,
-          ease: [0.25, 0.1, 0.25, 1],
-          repeat: 0, // No repeat on load
+          ease: "easeInOut",
+          repeat: 0,
         }
       }
     }
-    return { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
+    return { duration: 0.6, ease: "easeInOut" }
   }
 
   return (
@@ -125,7 +125,7 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
       className="perspective-1000 flex flex-col items-center space-y-4"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onHoverStart={() => setIsHovered(true)}
@@ -139,7 +139,7 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
             className="absolute inset-0 bg-gradient-to-br from-neutral-50 to-neutral-200 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             initial={false}
             animate={{ opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
           />
 
           {/* Centered icon container */}
@@ -168,7 +168,7 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
             transition={{
               duration: 1.2,
               repeat: isHovered ? Number.POSITIVE_INFINITY : 0,
-              ease: [0.4, 0, 0.2, 1],
+              ease: "easeInOut",
             }}
           />
 
@@ -182,7 +182,7 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
             transition={{
               duration: 1.8,
               repeat: isHovered ? Number.POSITIVE_INFINITY : 0,
-              ease: [0.4, 0, 0.2, 1],
+              ease: "easeInOut",
             }}
           />
         </div>
@@ -197,7 +197,7 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
             }}
             transition={{ 
               duration: 0.4, 
-              ease: [0.4, 0, 0.2, 1],
+              ease: "easeInOut",
               repeat: isHovered ? Number.POSITIVE_INFINITY : 0,
             }}
           >
@@ -214,7 +214,7 @@ export function DomainButton({ label, icon, href, description }: DomainButtonPro
               }}
               transition={{ 
                 duration: 0.3, 
-                ease: [0.4, 0, 0.2, 1],
+                ease: "easeInOut",
                 repeat: isHovered ? Number.POSITIVE_INFINITY : 0,
               }}
             >
@@ -294,7 +294,7 @@ export function DomainButtonV2({ label, icon, href, description }: DomainButtonP
       if (isHovered) {
         return {
           duration: 2.2,
-          ease: [0.25, 0.1, 0.25, 1],
+          ease: "easeInOut",
           times: [0, 0.12, 0.25, 0.38, 0.5, 0.62, 0.75, 0.88, 1],
           repeat: Number.POSITIVE_INFINITY,
           repeatDelay: 0.5,
@@ -302,12 +302,12 @@ export function DomainButtonV2({ label, icon, href, description }: DomainButtonP
       } else if (hasLoaded) {
         return {
           duration: 1.5,
-          ease: [0.25, 0.1, 0.25, 1],
+          ease: "easeInOut",
           repeat: 0, // No repeat on load
         }
       }
     }
-    return { duration: 0.6, ease: [0.4, 0, 0.2, 1] }
+    return { duration: 0.6, ease: "easeInOut" }
   }
 
   // Get gradient colors based on icon type
@@ -325,7 +325,7 @@ export function DomainButtonV2({ label, icon, href, description }: DomainButtonP
       className="perspective-1000 flex flex-col items-center space-y-4"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onHoverStart={() => setIsHovered(true)}

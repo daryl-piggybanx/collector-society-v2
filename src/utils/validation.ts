@@ -3,7 +3,8 @@ import {
   isValidPhoneNumber, 
   isPossiblePhoneNumber,
   validatePhoneNumberLength,
-  AsYouType 
+  AsYouType,
+  CountryCode
 } from 'libphonenumber-js'
 
 export interface ValidationResult {
@@ -33,7 +34,7 @@ export const validateEmail = (email: string): ValidationResult => {
   return { isValid: true }
 }
 
-export const validatePhoneNumber = (phoneNumber: string, defaultCountry: string = 'US'): ValidationResult => {
+export const validatePhoneNumber = (phoneNumber: string, defaultCountry: CountryCode = 'US'): ValidationResult => {
   if (!phoneNumber.trim()) {
     return { isValid: true } // phone is optional
   }
@@ -158,7 +159,7 @@ export const validatePhoneNumber = (phoneNumber: string, defaultCountry: string 
   }
 }
 
-export const formatPhoneNumberAsYouType = (value: string, country: string = 'US'): string => {
+export const formatPhoneNumberAsYouType = (value: string, country: CountryCode = 'US'): string => {
   if (!value) return value
   
   // Keep only digits for display to user
@@ -168,7 +169,7 @@ export const formatPhoneNumberAsYouType = (value: string, country: string = 'US'
   return digitsOnly
 }
 
-export const formatPhoneToE164 = (phoneNumber: string, defaultCountry: string = 'US'): string => {
+export const formatPhoneToE164 = (phoneNumber: string, defaultCountry: CountryCode = 'US'): string => {
   if (!phoneNumber.trim()) return phoneNumber
 
   try {
@@ -192,7 +193,7 @@ export const formatPhoneToE164 = (phoneNumber: string, defaultCountry: string = 
 }
 
 // Get formatted phone number for display
-export const getFormattedPhoneNumber = (phoneNumber: string, format: 'international' | 'national' = 'national', defaultCountry: string = 'US'): string => {
+export const getFormattedPhoneNumber = (phoneNumber: string, format: 'international' | 'national' = 'national', defaultCountry: CountryCode = 'US'): string => {
   if (!phoneNumber.trim()) return phoneNumber
 
   try {
@@ -214,7 +215,7 @@ export const getFormattedPhoneNumber = (phoneNumber: string, format: 'internatio
 }
 
 // check if phone number is possible (length validation only)
-export const isPhoneNumberPossible = (phoneNumber: string, defaultCountry: string = 'US'): boolean => {
+export const isPhoneNumberPossible = (phoneNumber: string, defaultCountry: CountryCode = 'US'): boolean => {
   if (!phoneNumber.trim()) return true // Optional field
   
   try {
