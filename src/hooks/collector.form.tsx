@@ -1,9 +1,9 @@
 import { createFormHook } from '@tanstack/react-form'
 import { fieldContext, formContext } from './demo.form-context'
-import { Button } from '@/components/ui/button'
-import { Progress } from '@/components/ui/progress'
+import { Button } from '~/components/ui/button'
+import { Progress } from '~/components/ui/progress'
 import { Check, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { useState } from 'react'
 
 // Form container that matches existing styling

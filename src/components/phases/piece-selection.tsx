@@ -5,11 +5,11 @@ import type React from "react"
 import { motion } from "motion/react"
 import { Palette, Sparkles } from "lucide-react"
 
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+import { Input } from "~/components/ui/input"
+import { Label } from "~/components/ui/label"
+import { Textarea } from "~/components/ui/textarea"
 
-import type { FormData } from "@/components/form/types"
+import type { FormData } from "~/components/form/types"
 
 interface PieceSelectionProps {
     formData: FormData

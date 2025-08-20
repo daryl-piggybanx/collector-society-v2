@@ -7,12 +7,12 @@ import { useRouter } from "@tanstack/react-router"
 
 import { usePostHog } from "posthog-js/react";
 
-import { getProfileByEmail, createUpdateProfile, subscribeProfileDiscord } from "@/integrations/klaviyo/profiles/services"
+import { getProfileByEmail, createUpdateProfile, subscribeProfileDiscord } from "~/integrations/klaviyo/profiles/services"
 import { useMutation } from "@tanstack/react-query"
-import { collectionVariations } from "@/lib/data"
+import { collectionVariations } from "~/lib/data"
 
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
+import { Button } from "~/components/ui/button"
+import { Progress } from "~/components/ui/progress"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,17 +22,17 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
+} from "~/components/ui/alert-dialog"
 
-import { useSharedFormData } from "@/hooks/shared-data"
-import { filterEmptyValues } from "@/lib/utils"
+import { useSharedFormData } from "~/hooks/shared-data"
+import { filterEmptyValues } from "~/lib/utils"
 
-import CollectorPieces from "@/components/phases/collector-pieces"
-import MarketingConsent from "@/components/phases/marketing-consent"
-import UserIdentity from "@/components/phases/user-identity"
-import FileUpload from "@/components/ui/file-upload"
-import type { FileUploadRef } from "@/components/ui/file-upload"
-import ConfirmationPage from "@/components/phases/confirmation-page"
+import CollectorPieces from "~/components/phases/collector-pieces"
+import MarketingConsent from "~/components/phases/marketing-consent"
+import UserIdentity from "~/components/phases/user-identity"
+import FileUpload from "~/components/ui/file-upload"
+import type { FileUploadRef } from "~/components/ui/file-upload"
+import ConfirmationPage from "~/components/phases/confirmation-page"
 
 import type { FormData } from "./types"
 import { initialFormData } from "./types"

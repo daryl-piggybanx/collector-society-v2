@@ -6,25 +6,25 @@ import { Check, ChevronLeft, ChevronRight, Loader2 } from "lucide-react"
 
 import { usePostHog } from "posthog-js/react";
 
-import { createUpdateProfile, subscribeProfileReservation } from "@/integrations/klaviyo/profiles/services"
+import { createUpdateProfile, subscribeProfileReservation } from "~/integrations/klaviyo/profiles/services"
 import { useMutation } from "@tanstack/react-query"
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
+import { Button } from "~/components/ui/button"
+import { Progress } from "~/components/ui/progress"
 
-import { useSharedFormData } from "@/hooks/shared-data"
-import { filterEmptyValues } from "@/lib/utils"
+import { useSharedFormData } from "~/hooks/shared-data"
+import { filterEmptyValues } from "~/lib/utils"
 
-import { wallPieceRules } from "@/lib/data"
+import { wallPieceRules } from "~/lib/data"
 
-import CommunityRules from "@/components/phases/community-rules"
-import MarketingConsent from "@/components/phases/marketing-consent"
-import UserIdentity from "@/components/phases/user-identity"
-import ShippingAddress from "@/components/phases/shipping-address"
-import PieceSelection from "@/components/phases/piece-selection"
+import CommunityRules from "~/components/phases/community-rules"
+import MarketingConsent from "~/components/phases/marketing-consent"
+import UserIdentity from "~/components/phases/user-identity"
+import ShippingAddress from "~/components/phases/shipping-address"
+import PieceSelection from "~/components/phases/piece-selection"
 
-import ConfirmationPage from "@/components/phases/confirmation-page"
-import { validatePhoneNumber } from "@/utils/validation"
-import { validateEmail } from "@/utils/validation"
+import ConfirmationPage from "~/components/phases/confirmation-page"
+import { validatePhoneNumber } from "~/utils/validation"
+import { validateEmail } from "~/utils/validation"
 
 import type { FormData } from "./types"
 import { initialFormData } from "./types"

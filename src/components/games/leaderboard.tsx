@@ -2,14 +2,14 @@
 
 import { useState } from "react"
 import { useRouter } from "@tanstack/react-router"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "~/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 
 import { ArrowLeft, Trophy, Medal, Award } from "lucide-react"
 
 import { useQuery } from "@tanstack/react-query"
-import { getLeaderboard, getLeaderBoardStats } from "@/integrations/supabase/services"
-import type { LeaderboardEntry } from "@/integrations/supabase/types"
+import { getLeaderboard, getLeaderBoardStats } from "~/integrations/supabase/services"
+import type { LeaderboardEntry } from "~/integrations/supabase/types"
 
 
 export default function LeaderboardPage() {

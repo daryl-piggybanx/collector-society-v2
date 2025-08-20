@@ -3,10 +3,10 @@ import type React from "react"
 import { motion } from "motion/react"
 import { Sparkles, Users, X } from "lucide-react"
 import { useLocation } from "@tanstack/react-router"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
-import type { FormData } from "@/components/form/types"
+import { Input } from "~/components/ui/input"
+import { Label } from "~/components/ui/label"
+import { Button } from "~/components/ui/button"
+import type { FormData } from "~/components/form/types"
 
 interface CollectorPiecesProps {
   formData: FormData

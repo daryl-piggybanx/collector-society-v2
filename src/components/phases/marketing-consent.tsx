@@ -2,11 +2,11 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { Mail, Phone } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Checkbox } from "@/components/ui/checkbox"
-import type { FormData } from "@/components/form/types"
+import { Input } from "~/components/ui/input"
+import { Label } from "~/components/ui/label"
+import { RadioGroup, RadioGroupItem } from "~/components/ui/radio-group"
+import { Checkbox } from "~/components/ui/checkbox"
+import type { FormData } from "~/components/form/types"
 import {
   validateEmail,
   validatePhoneNumber,
@@ -18,7 +18,7 @@ import {
   createFieldState,
   updateFieldState,
   type FieldValidationState
-} from "@/utils/validation"
+} from "~/utils/validation"
 import { useLocation } from "@tanstack/react-router"
 
 interface MarketingConsentProps {

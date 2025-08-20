@@ -1,7 +1,7 @@
 "use client"
 
 import { Canvas } from "@react-three/fiber"
-import SmokeEffect from "@/components/smoke-effect"
+import SmokeEffect from "~/components/smoke-effect"
 
 export default function SmokeEffectBackground() {
   return (

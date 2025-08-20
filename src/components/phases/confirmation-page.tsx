@@ -9,7 +9,7 @@ import {
   Palette,
 } from "lucide-react"
 import { FaDiscord } from "react-icons/fa"
-import type { FormData } from "@/components/form/types"
+import type { FormData } from "~/components/form/types"
 
 interface ConfirmationPageProps {
   formData: FormData

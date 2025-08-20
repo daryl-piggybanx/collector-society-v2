@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react"
 import { UserPlus, UserCheck } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import type { FormData } from "@/components/form/types"
+import { Button } from "~/components/ui/button"
+import type { FormData } from "~/components/form/types"
 
 interface CollectorTypeProps {
   formData: FormData

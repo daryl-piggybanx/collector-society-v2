@@ -7,12 +7,12 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 import { useGSAP } from '@gsap/react';
-import { Card } from "@/components/ui/card";
+import { Card } from "~/components/ui/card";
 
-import Header from "@/components/header"
+import Header from "~/components/header"
 
-import SunriseBackground from "@/components/sunrise-background"
-import Collaborators from "@/components/collaborators"
+import SunriseBackground from "~/components/sunrise-background"
+import Collaborators from "~/components/collaborators"
 
 // Register GSAP plugins
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother);

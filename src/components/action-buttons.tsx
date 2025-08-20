@@ -1,7 +1,7 @@
 "use client"
 
-import FuturisticButton from "@/components/ui/futuristic-button"
-import { useMobile } from "@/hooks/use-mobile"
+import FuturisticButton from "~/components/ui/futuristic-button"
+import { useMobile } from "~/hooks/use-mobile"
 import { motion } from "motion/react"
 
 

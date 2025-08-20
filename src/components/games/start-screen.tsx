@@ -1,8 +1,8 @@
 "use client"
 import { Link } from '@tanstack/react-router'
-import logo from '@/assets/logo-white.png'
+import logo from '~/assets/logo-white.png'
 
-import { Button } from "@/components/ui/button"
+import { Button } from "~/components/ui/button"
 
 
 type StartScreenProps = {

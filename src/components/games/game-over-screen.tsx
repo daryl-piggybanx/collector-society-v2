@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { Button } from "~/components/ui/button"
+import { Card } from "~/components/ui/card"
 import { Link } from "@tanstack/react-router"
-import logo from '@/assets/logo-white.png'
+import logo from '~/assets/logo-white.png'
 
 import { useRouter } from "@tanstack/react-router"
 

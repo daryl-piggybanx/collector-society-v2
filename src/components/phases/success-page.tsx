@@ -18,7 +18,7 @@ import {
   Palette,
   Car,
 } from "lucide-react"
-import type { FormData } from "@/components/form/types"
+import type { FormData } from "~/components/form/types"
 
 interface SuccessPageProps {
   formData: FormData

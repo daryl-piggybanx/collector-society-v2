@@ -4,9 +4,9 @@ import type React from "react"
 
 import { motion } from "motion/react"
 import { Users } from "lucide-react"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import type { FormData } from "@/components/form/types"
+import { Textarea } from "~/components/ui/textarea"
+import { Label } from "~/components/ui/label"
+import type { FormData } from "~/components/form/types"
 
 interface CommunityExperienceProps {
   formData: FormData

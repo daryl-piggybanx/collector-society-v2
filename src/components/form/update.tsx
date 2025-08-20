@@ -7,12 +7,12 @@ import { useRouter } from "@tanstack/react-router"
 
 import { usePostHog } from "posthog-js/react";
 
-import { getProfileByEmail, createUpdateProfile, subscribeProfile  } from "@/integrations/klaviyo/profiles/services"
+import { getProfileByEmail, createUpdateProfile, subscribeProfile  } from "~/integrations/klaviyo/profiles/services"
 import { useMutation } from "@tanstack/react-query"
-import { originalCollectionPreferences, collectionPreferences, collectionVariations } from "@/lib/data"
+import { originalCollectionPreferences, collectionPreferences, collectionVariations } from "~/lib/data"
 
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
+import { Button } from "~/components/ui/button"
+import { Progress } from "~/components/ui/progress"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,18 +22,18 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
+} from "~/components/ui/alert-dialog"
 
-import { useSharedFormData } from "@/hooks/shared-data"
-import { filterEmptyValues } from "@/lib/utils"
+import { useSharedFormData } from "~/hooks/shared-data"
+import { filterEmptyValues } from "~/lib/utils"
 
-import CollectorPieces from "@/components/phases/collector-pieces"
-import CommunityExperience from "@/components/phases/community-experience"
-import MarketingConsent from "@/components/phases/marketing-consent"
-import TopCategories from "@/components/phases/top-categories"
-import UserIdentity from "@/components/phases/user-identity"
+import CollectorPieces from "~/components/phases/collector-pieces"
+import CommunityExperience from "~/components/phases/community-experience"
+import MarketingConsent from "~/components/phases/marketing-consent"
+import TopCategories from "~/components/phases/top-categories"
+import UserIdentity from "~/components/phases/user-identity"
 
-import SuccessPage from "@/components/phases/success-page"
+import SuccessPage from "~/components/phases/success-page"
 
 import type { FormData } from "./types"
 import { initialFormData } from "./types"

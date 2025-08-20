@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useCallback, useRef } from "react"
-import type { GameState } from "@/components/games/flappy-pig"
+import type { GameState } from "~/components/games/flappy-pig"
 
 export function useGameInput(flap: () => void, startGame: () => void, restartGame: () => void, gameState: GameState, isEnabled: boolean = true) {
   const gameOverTimeRef = useRef<number>(0)

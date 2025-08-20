@@ -3,9 +3,9 @@
 import { useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useMotionValueEvent, useInView, useMotionValue, useSpring } from "motion/react"
 
-import { collaborators as mockCollaborators } from "@/lib/data"
+import { collaborators as mockCollaborators } from "~/lib/data"
 
-import InfiniteMarquee from "@/components/marquee"
+import InfiniteMarquee from "~/components/marquee"
 
 type CounterProps = {
     value: number;

@@ -3,11 +3,11 @@
 import type React from "react"
 
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "~/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card"
 
 import { useMutation } from "@tanstack/react-query"
-import { submitScore } from "@/integrations/supabase/services"
+import { submitScore } from "~/integrations/supabase/services"
 
 type ScoreEntryProps = {
   score: number

@@ -12,6 +12,7 @@ import { createServerRootRoute } from '@tanstack/react-start/server'
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RedirectRouteImport } from './routes/redirect'
+import { Route as EthosRouteImport } from './routes/ethos'
 import { Route as DeferredRouteImport } from './routes/deferred'
 import { Route as PathlessLayoutRouteImport } from './routes/_pathlessLayout'
 import { Route as UsersRouteRouteImport } from './routes/users.route'
@@ -19,8 +20,17 @@ import { Route as PostsRouteRouteImport } from './routes/posts.route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UsersIndexRouteImport } from './routes/users.index'
 import { Route as PostsIndexRouteImport } from './routes/posts.index'
+import { Route as CollectorIndexRouteImport } from './routes/collector.index'
 import { Route as UsersUserIdRouteImport } from './routes/users.$userId'
 import { Route as PostsPostIdRouteImport } from './routes/posts.$postId'
+import { Route as PlayLeaderboardRouteImport } from './routes/play.leaderboard'
+import { Route as PlayFlappyPigRouteImport } from './routes/play.flappy-pig'
+import { Route as DemoHoloCardsRouteImport } from './routes/demo.holo-cards'
+import { Route as CollectorUpdateRouteImport } from './routes/collector.update'
+import { Route as CollectorReservationRouteImport } from './routes/collector.reservation'
+import { Route as CollectorOgRouteImport } from './routes/collector.og'
+import { Route as CollectorNewRouteImport } from './routes/collector.new'
+import { Route as CollectorDiscordRouteImport } from './routes/collector.discord'
 import { Route as PathlessLayoutNestedLayoutRouteImport } from './routes/_pathlessLayout/_nested-layout'
 import { Route as PostsPostIdDeepRouteImport } from './routes/posts_.$postId.deep'
 import { Route as PathlessLayoutNestedLayoutRouteBRouteImport } from './routes/_pathlessLayout/_nested-layout/route-b'
@@ -33,6 +43,11 @@ const rootServerRouteImport = createServerRootRoute()
 const RedirectRoute = RedirectRouteImport.update({
   id: '/redirect',
   path: '/redirect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EthosRoute = EthosRouteImport.update({
+  id: '/ethos',
+  path: '/ethos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeferredRoute = DeferredRouteImport.update({
@@ -69,6 +84,11 @@ const PostsIndexRoute = PostsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => PostsRouteRoute,
 } as any)
+const CollectorIndexRoute = CollectorIndexRouteImport.update({
+  id: '/collector/',
+  path: '/collector/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UsersUserIdRoute = UsersUserIdRouteImport.update({
   id: '/$userId',
   path: '/$userId',
@@ -78,6 +98,46 @@ const PostsPostIdRoute = PostsPostIdRouteImport.update({
   id: '/$postId',
   path: '/$postId',
   getParentRoute: () => PostsRouteRoute,
+} as any)
+const PlayLeaderboardRoute = PlayLeaderboardRouteImport.update({
+  id: '/play/leaderboard',
+  path: '/play/leaderboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlayFlappyPigRoute = PlayFlappyPigRouteImport.update({
+  id: '/play/flappy-pig',
+  path: '/play/flappy-pig',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoHoloCardsRoute = DemoHoloCardsRouteImport.update({
+  id: '/demo/holo-cards',
+  path: '/demo/holo-cards',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectorUpdateRoute = CollectorUpdateRouteImport.update({
+  id: '/collector/update',
+  path: '/collector/update',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectorReservationRoute = CollectorReservationRouteImport.update({
+  id: '/collector/reservation',
+  path: '/collector/reservation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectorOgRoute = CollectorOgRouteImport.update({
+  id: '/collector/og',
+  path: '/collector/og',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectorNewRoute = CollectorNewRouteImport.update({
+  id: '/collector/new',
+  path: '/collector/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectorDiscordRoute = CollectorDiscordRouteImport.update({
+  id: '/collector/discord',
+  path: '/collector/discord',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const PathlessLayoutNestedLayoutRoute =
   PathlessLayoutNestedLayoutRouteImport.update({
@@ -117,9 +177,19 @@ export interface FileRoutesByFullPath {
   '/posts': typeof PostsRouteRouteWithChildren
   '/users': typeof UsersRouteRouteWithChildren
   '/deferred': typeof DeferredRoute
+  '/ethos': typeof EthosRoute
   '/redirect': typeof RedirectRoute
+  '/collector/discord': typeof CollectorDiscordRoute
+  '/collector/new': typeof CollectorNewRoute
+  '/collector/og': typeof CollectorOgRoute
+  '/collector/reservation': typeof CollectorReservationRoute
+  '/collector/update': typeof CollectorUpdateRoute
+  '/demo/holo-cards': typeof DemoHoloCardsRoute
+  '/play/flappy-pig': typeof PlayFlappyPigRoute
+  '/play/leaderboard': typeof PlayLeaderboardRoute
   '/posts/$postId': typeof PostsPostIdRoute
   '/users/$userId': typeof UsersUserIdRoute
+  '/collector': typeof CollectorIndexRoute
   '/posts/': typeof PostsIndexRoute
   '/users/': typeof UsersIndexRoute
   '/route-a': typeof PathlessLayoutNestedLayoutRouteARoute
@@ -129,9 +199,19 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/deferred': typeof DeferredRoute
+  '/ethos': typeof EthosRoute
   '/redirect': typeof RedirectRoute
+  '/collector/discord': typeof CollectorDiscordRoute
+  '/collector/new': typeof CollectorNewRoute
+  '/collector/og': typeof CollectorOgRoute
+  '/collector/reservation': typeof CollectorReservationRoute
+  '/collector/update': typeof CollectorUpdateRoute
+  '/demo/holo-cards': typeof DemoHoloCardsRoute
+  '/play/flappy-pig': typeof PlayFlappyPigRoute
+  '/play/leaderboard': typeof PlayLeaderboardRoute
   '/posts/$postId': typeof PostsPostIdRoute
   '/users/$userId': typeof UsersUserIdRoute
+  '/collector': typeof CollectorIndexRoute
   '/posts': typeof PostsIndexRoute
   '/users': typeof UsersIndexRoute
   '/route-a': typeof PathlessLayoutNestedLayoutRouteARoute
@@ -145,10 +225,20 @@ export interface FileRoutesById {
   '/users': typeof UsersRouteRouteWithChildren
   '/_pathlessLayout': typeof PathlessLayoutRouteWithChildren
   '/deferred': typeof DeferredRoute
+  '/ethos': typeof EthosRoute
   '/redirect': typeof RedirectRoute
   '/_pathlessLayout/_nested-layout': typeof PathlessLayoutNestedLayoutRouteWithChildren
+  '/collector/discord': typeof CollectorDiscordRoute
+  '/collector/new': typeof CollectorNewRoute
+  '/collector/og': typeof CollectorOgRoute
+  '/collector/reservation': typeof CollectorReservationRoute
+  '/collector/update': typeof CollectorUpdateRoute
+  '/demo/holo-cards': typeof DemoHoloCardsRoute
+  '/play/flappy-pig': typeof PlayFlappyPigRoute
+  '/play/leaderboard': typeof PlayLeaderboardRoute
   '/posts/$postId': typeof PostsPostIdRoute
   '/users/$userId': typeof UsersUserIdRoute
+  '/collector/': typeof CollectorIndexRoute
   '/posts/': typeof PostsIndexRoute
   '/users/': typeof UsersIndexRoute
   '/_pathlessLayout/_nested-layout/route-a': typeof PathlessLayoutNestedLayoutRouteARoute
@@ -162,9 +252,19 @@ export interface FileRouteTypes {
     | '/posts'
     | '/users'
     | '/deferred'
+    | '/ethos'
     | '/redirect'
+    | '/collector/discord'
+    | '/collector/new'
+    | '/collector/og'
+    | '/collector/reservation'
+    | '/collector/update'
+    | '/demo/holo-cards'
+    | '/play/flappy-pig'
+    | '/play/leaderboard'
     | '/posts/$postId'
     | '/users/$userId'
+    | '/collector'
     | '/posts/'
     | '/users/'
     | '/route-a'
@@ -174,9 +274,19 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/deferred'
+    | '/ethos'
     | '/redirect'
+    | '/collector/discord'
+    | '/collector/new'
+    | '/collector/og'
+    | '/collector/reservation'
+    | '/collector/update'
+    | '/demo/holo-cards'
+    | '/play/flappy-pig'
+    | '/play/leaderboard'
     | '/posts/$postId'
     | '/users/$userId'
+    | '/collector'
     | '/posts'
     | '/users'
     | '/route-a'
@@ -189,10 +299,20 @@ export interface FileRouteTypes {
     | '/users'
     | '/_pathlessLayout'
     | '/deferred'
+    | '/ethos'
     | '/redirect'
     | '/_pathlessLayout/_nested-layout'
+    | '/collector/discord'
+    | '/collector/new'
+    | '/collector/og'
+    | '/collector/reservation'
+    | '/collector/update'
+    | '/demo/holo-cards'
+    | '/play/flappy-pig'
+    | '/play/leaderboard'
     | '/posts/$postId'
     | '/users/$userId'
+    | '/collector/'
     | '/posts/'
     | '/users/'
     | '/_pathlessLayout/_nested-layout/route-a'
@@ -206,7 +326,17 @@ export interface RootRouteChildren {
   UsersRouteRoute: typeof UsersRouteRouteWithChildren
   PathlessLayoutRoute: typeof PathlessLayoutRouteWithChildren
   DeferredRoute: typeof DeferredRoute
+  EthosRoute: typeof EthosRoute
   RedirectRoute: typeof RedirectRoute
+  CollectorDiscordRoute: typeof CollectorDiscordRoute
+  CollectorNewRoute: typeof CollectorNewRoute
+  CollectorOgRoute: typeof CollectorOgRoute
+  CollectorReservationRoute: typeof CollectorReservationRoute
+  CollectorUpdateRoute: typeof CollectorUpdateRoute
+  DemoHoloCardsRoute: typeof DemoHoloCardsRoute
+  PlayFlappyPigRoute: typeof PlayFlappyPigRoute
+  PlayLeaderboardRoute: typeof PlayLeaderboardRoute
+  CollectorIndexRoute: typeof CollectorIndexRoute
   PostsPostIdDeepRoute: typeof PostsPostIdDeepRoute
 }
 export interface FileServerRoutesByFullPath {
@@ -241,6 +371,13 @@ declare module '@tanstack/react-router' {
       path: '/redirect'
       fullPath: '/redirect'
       preLoaderRoute: typeof RedirectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ethos': {
+      id: '/ethos'
+      path: '/ethos'
+      fullPath: '/ethos'
+      preLoaderRoute: typeof EthosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/deferred': {
@@ -292,6 +429,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PostsIndexRouteImport
       parentRoute: typeof PostsRouteRoute
     }
+    '/collector/': {
+      id: '/collector/'
+      path: '/collector'
+      fullPath: '/collector'
+      preLoaderRoute: typeof CollectorIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/users/$userId': {
       id: '/users/$userId'
       path: '/$userId'
@@ -305,6 +449,62 @@ declare module '@tanstack/react-router' {
       fullPath: '/posts/$postId'
       preLoaderRoute: typeof PostsPostIdRouteImport
       parentRoute: typeof PostsRouteRoute
+    }
+    '/play/leaderboard': {
+      id: '/play/leaderboard'
+      path: '/play/leaderboard'
+      fullPath: '/play/leaderboard'
+      preLoaderRoute: typeof PlayLeaderboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/play/flappy-pig': {
+      id: '/play/flappy-pig'
+      path: '/play/flappy-pig'
+      fullPath: '/play/flappy-pig'
+      preLoaderRoute: typeof PlayFlappyPigRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo/holo-cards': {
+      id: '/demo/holo-cards'
+      path: '/demo/holo-cards'
+      fullPath: '/demo/holo-cards'
+      preLoaderRoute: typeof DemoHoloCardsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collector/update': {
+      id: '/collector/update'
+      path: '/collector/update'
+      fullPath: '/collector/update'
+      preLoaderRoute: typeof CollectorUpdateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collector/reservation': {
+      id: '/collector/reservation'
+      path: '/collector/reservation'
+      fullPath: '/collector/reservation'
+      preLoaderRoute: typeof CollectorReservationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collector/og': {
+      id: '/collector/og'
+      path: '/collector/og'
+      fullPath: '/collector/og'
+      preLoaderRoute: typeof CollectorOgRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collector/new': {
+      id: '/collector/new'
+      path: '/collector/new'
+      fullPath: '/collector/new'
+      preLoaderRoute: typeof CollectorNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collector/discord': {
+      id: '/collector/discord'
+      path: '/collector/discord'
+      fullPath: '/collector/discord'
+      preLoaderRoute: typeof CollectorDiscordRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/_pathlessLayout/_nested-layout': {
       id: '/_pathlessLayout/_nested-layout'
@@ -431,7 +631,17 @@ const rootRouteChildren: RootRouteChildren = {
   UsersRouteRoute: UsersRouteRouteWithChildren,
   PathlessLayoutRoute: PathlessLayoutRouteWithChildren,
   DeferredRoute: DeferredRoute,
+  EthosRoute: EthosRoute,
   RedirectRoute: RedirectRoute,
+  CollectorDiscordRoute: CollectorDiscordRoute,
+  CollectorNewRoute: CollectorNewRoute,
+  CollectorOgRoute: CollectorOgRoute,
+  CollectorReservationRoute: CollectorReservationRoute,
+  CollectorUpdateRoute: CollectorUpdateRoute,
+  DemoHoloCardsRoute: DemoHoloCardsRoute,
+  PlayFlappyPigRoute: PlayFlappyPigRoute,
+  PlayLeaderboardRoute: PlayLeaderboardRoute,
+  CollectorIndexRoute: CollectorIndexRoute,
   PostsPostIdDeepRoute: PostsPostIdDeepRoute,
 }
 export const routeTree = rootRouteImport

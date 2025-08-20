@@ -6,7 +6,7 @@ import { Link } from "@tanstack/react-router"
 // Public assets are referenced as URLs, not imported as modules
 const bgVideo = "/assets/webBG.mp4"
 const landingbg = "/assets/landingBG2.png"
-import { navItems } from "@/lib/data"
+import { navItems } from "~/lib/data"
 
 export default function LandingPage() {
     // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })

@@ -2,9 +2,9 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { Home, Building } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import type { FormData } from "@/components/form/types"
+import { Input } from "~/components/ui/input"
+import { Label } from "~/components/ui/label"
+import type { FormData } from "~/components/form/types"
 
 interface ShippingAddressProps {
   formData: FormData

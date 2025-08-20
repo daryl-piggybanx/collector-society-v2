@@ -1,7 +1,7 @@
 "use client"
 
-import { DomainButton, DomainButtonV2 } from "@/components/ui/domain-button";
-import { useMobile } from "@/hooks/use-mobile";
+import { DomainButton, DomainButtonV2 } from "~/components/ui/domain-button";
+import { useMobile } from "~/hooks/use-mobile";
 import { motion } from "motion/react";
 
 export default function RedirectButtons() {

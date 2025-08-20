@@ -1,16 +1,16 @@
 "use client"
 
-import { setWithExpiration, getWithExpiration, clearExpiredItems } from "@/utils/localStorage"
+import { setWithExpiration, getWithExpiration, clearExpiredItems } from "~/utils/localStorage"
 
 import { useState, useEffect, useCallback, useRef } from "react"
-import { Card } from "@/components/ui/card"
-import SpacePig from "@/components/sprites/space-pig"
-import FuturisticBuilding from "@/components/games/futuristic-building"
-import GameOverScreen from "@/components/games/game-over-screen"
-import StartScreen from "@/components/games/start-screen"
-import ScoreDisplay from "@/components/games/score-display"
-import { useGamePhysics } from "@/hooks/use-game-physics"
-import { useGameInput } from "@/hooks/use-game-input"
+import { Card } from "~/components/ui/card"
+import SpacePig from "~/components/sprites/space-pig"
+import FuturisticBuilding from "~/components/games/futuristic-building"
+import GameOverScreen from "~/components/games/game-over-screen"
+import StartScreen from "~/components/games/start-screen"
+import ScoreDisplay from "~/components/games/score-display"
+import { useGamePhysics } from "~/hooks/use-game-physics"
+import { useGameInput } from "~/hooks/use-game-input"
 
 export type GameState = "menu" | "ready" | "playing" | "gameOver"
 
