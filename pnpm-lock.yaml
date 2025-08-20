@@ -122,6 +122,9 @@ importers:
       redaxios:
         specifier: ^0.5.1
         version: 0.5.1
+      router-manifest:
+        specifier: link:@tanstack/react-start/router-manifest
+        version: link:@tanstack/react-start/router-manifest
       superjson:
         specifier: ^2.2.2
         version: 2.2.2

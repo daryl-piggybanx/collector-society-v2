@@ -8,7 +8,7 @@ import { useNavigate } from '@tanstack/react-router'
 export default function StatueScene() {
   
   return (
-      <Canvas shadows="basic" eventSource={document.getElementById('root') || undefined} eventPrefix="client" camera={{ position: [0, -8, 20], fov: 45, rotation: [Math.PI / 12, 0, 0] }}>
+      <Canvas shadows="basic" eventSource={typeof window !== 'undefined' ? document.getElementById('root') || undefined : undefined} eventPrefix="client" camera={{ position: [0, -8, 20], fov: 45, rotation: [Math.PI / 12, 0, 0] }}>
       {/* <fog attach="fog" args={['black', 0, 20]} /> */}
       {/* <ambientLight intensity={1} /> */}
       <directionalLight position={[10, 15, 10]} intensity={10} />

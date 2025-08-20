@@ -12,4 +12,7 @@ export default defineConfig({
     }) as any,
     tanstackStart(),
   ],
+  ssr: {
+    noExternal: ['@react-three/fiber', '@react-three/drei', 'three'],
+  },
 })

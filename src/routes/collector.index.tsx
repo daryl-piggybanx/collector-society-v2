@@ -4,8 +4,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import RedirectButtons from '~/components/redirect-buttons'
 import ActionButtons from '~/components/action-buttons'
 import SocialIcons from '~/components/social-icons'
+import { Suspense, lazy } from 'react'
 
-import StatueScene from '~/components/scenes/statue'
+const StatueScene = lazy(() => import('~/components/scenes/statue'))
 
 export const Route = createFileRoute('/collector/')({
   component: RouteComponent,
@@ -14,7 +15,9 @@ export const Route = createFileRoute('/collector/')({
 function RouteComponent() {
     return (
       <main className="h-screen font-amiri text-white statue-custom-radial-gradient statue-custom-cursor">
-        <StatueScene />
+        <Suspense fallback={<div className="h-screen w-full bg-gradient-to-b from-gray-900 to-black" />}>
+          <StatueScene />
+        </Suspense>
       </main>
 
       // <ComingSoon />

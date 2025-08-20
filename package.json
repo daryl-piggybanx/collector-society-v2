@@ -49,6 +49,7 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "redaxios": "^0.5.1",
+    "router-manifest": "link:@tanstack/react-start/router-manifest",
     "superjson": "^2.2.2",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
