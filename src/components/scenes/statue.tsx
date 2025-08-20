@@ -1,14 +1,66 @@
-import { Suspense, useRef } from 'react'
+import { Suspense, useRef, useEffect } from 'react'
 import { Canvas, useFrame, type ThreeElements } from '@react-three/fiber'
 import { useGLTF, SoftShadows, Html, CameraControls, RoundedBox } from '@react-three/drei'
 import { easing } from 'maath'
 import { Group, SpotLight, Mesh } from 'three'
 import { useNavigate } from '@tanstack/react-router'            
+import { useDeviceOrientation, type DeviceOrientationData } from '~/hooks/use-device-orientation'
+
+// Convert orientation angles to model rotation
+function orientationToRotation(orientation: DeviceOrientationData) {
+  const { alpha, beta, gamma } = orientation
+  
+  if (alpha === null || beta === null || gamma === null) {
+    return [Math.PI / 2, 0, 0] // Default rotation
+  }
+
+
+  // Normalize and scale the orientation values
+  const normalizedBeta = Math.max(-45, Math.min(45, beta || 0)) // Limit range to prevent over-rotation
+  const normalizedGamma = Math.max(-45, Math.min(45, gamma || 0))
+  
+  // Convert to radians and scale for model rotation
+  const betaRad = (normalizedBeta * Math.PI) / 180
+  const gammaRad = (normalizedGamma * Math.PI) / 180
+  
+  // Calculate rotation: base rotation + device orientation
+  const rotationX = Math.PI / 2 + (betaRad * 0.5) // Forward/backward tilt
+  const rotationY = gammaRad * 0.5 // Left/right tilt  
+  const rotationZ = 0
+  
+  return [rotationX, rotationY, rotationZ]
+}
 
 export default function StatueScene() {
+  const { isSupported, hasPermission, requestPermission } = useDeviceOrientation()
   
+  // Auto-enable device control when available
+  useEffect(() => {
+    const enableDeviceControl = async () => {
+      if (isSupported) {
+        try {
+          await requestPermission()
+          // Permission is handled automatically by the hook
+        } catch (error) {
+          // Silently fail for background animation
+          console.log('Device orientation not available:', error)
+        }
+      }
+    }
+    
+    enableDeviceControl()
+  }, [isSupported, requestPermission])
+
   return (
-      <Canvas shadows="basic" eventSource={document.getElementById('root') || undefined} eventPrefix="client" camera={{ position: [0, -8, 20], fov: 45, rotation: [Math.PI / 12, 0, 0] }}>
+      <Canvas 
+        shadows="basic" 
+        eventSource={document.getElementById('root') || undefined} 
+        eventPrefix="client" 
+        camera={{ position: [0, -8, 20], fov: 45, rotation: [Math.PI / 12, 0, 0] }}
+        onCreated={({ gl }) => {
+          gl.setAnimationLoop(null) // Disable animation loop
+        }}
+      >
       {/* <fog attach="fog" args={['black', 0, 20]} /> */}
       {/* <ambientLight intensity={1} /> */}
       <directionalLight position={[10, 15, 10]} intensity={10} />
@@ -18,7 +70,11 @@ export default function StatueScene() {
       {/* <pointLight position={[0, 20, 0]} intensity={15} color="#ffffff" />
       <pointLight position={[5, 15, -5]} intensity={10} color="#ffffff" />
       <pointLight position={[-5, 15, -5]} intensity={10} color="#ffffff" /> */}
-      <Model position={[0, 2, 3]} rotation={[0, -0.2, 0]} />
+      <Model 
+        position={[0, 2, 3]} 
+        rotation={[0, -0.2, 0]} 
+        useDeviceControl={hasPermission || false}
+      />
       <SoftShadows samples={25} />
       <CameraControls 
         minPolarAngle={Math.PI / 8} 
@@ -33,11 +89,15 @@ export default function StatueScene() {
 type ModelProps = ThreeElements['group'] & {
   position?: [number, number, number]
   rotation?: [number, number, number]
+  useDeviceControl?: boolean
 }
 
 function Model(props: ModelProps) {
   const group = useRef<Group>(null!)
   const light = useRef<SpotLight>(null!)
+  const mesh = useRef<Mesh>(null!)
+  const { orientation } = useDeviceOrientation()
+  
   const { nodes, materials } = useGLTF('/assets/BoltLogo_Concrete3.glb') as any
 
   const navItems = [
@@ -52,6 +112,16 @@ function Model(props: ModelProps) {
     easing.damp3(group.current.position, [0, -1, 1 - Math.abs(state.pointer.x)], 1, delta)
     // easing.damp3(light.current.position, [state.pointer.x * 12, 0, 8 + state.pointer.y * 4], 0.2, delta) // with cursor
     easing.damp3(light.current.position, [0, 0, 8], 0.2, delta) // Fixed position
+
+
+    // handle mesh rotation based on device orientation or default
+    if (mesh.current) {
+      const targetRotation = props.useDeviceControl 
+        ? orientationToRotation(orientation)
+        : [Math.PI / 2, 0, 0] // Default rotation
+      
+      easing.dampE(mesh.current.rotation, targetRotation as [number, number, number], 0.8, delta)
+    }
   })
   
   return (
