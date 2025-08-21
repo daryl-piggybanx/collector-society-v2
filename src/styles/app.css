@@ -284,7 +284,7 @@ code {
     rgba(255, 255, 255, 0) 100%
   );
   background-size: 200% 100%;
-  animation: shimmer 8s infinite linear;
+  animation: shimmer 5s infinite linear;
   pointer-events: none;
 }
 

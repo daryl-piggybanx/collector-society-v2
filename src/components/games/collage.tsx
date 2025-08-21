@@ -24,7 +24,7 @@ export function Collage() {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
@@ -33,13 +33,13 @@ export function Collage() {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "Expansion":
-        return "bg-mono-light/20 text-mono-light border-mono-light/30"
+        return "bg-mono-light/20 text-mono-light border-mono-light/30 group-hover:bg-mono-light group-hover:text-mono-heavy group-hover:border-mono-heavy"
       case "Season":
-        return "bg-mono-mid/20 text-mono-mid border-mono-mid/30"
+        return "bg-mono-mid/20 text-mono-mid border-mono-mid/30 group-hover:bg-mono-light group-hover:text-mono-heavy group-hover:border-mono-heavy"
       case "PvP":
-        return "bg-mono-heavy/20 text-mono-heavy border-mono-heavy/30"
+        return "bg-mono-heavy/20 text-mono-heavy border-mono-heavy/30 group-hover:bg-mono-light group-hover:text-mono-heavy group-hover:border-mono-heavy"
       default:
-        return "bg-mono-mid/20 text-mono-mid border-mono-mid/30"
+        return "bg-mono-mid/20 text-mono-mid border-mono-mid/30 group-hover:bg-mono-light group-hover:text-mono-heavy group-hover:border-mono-heavy"
     }
   }
 
@@ -51,7 +51,7 @@ export function Collage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <h2
             className="text-4xl md:text-5xl font-black mb-4 text-mono-light"
@@ -70,7 +70,7 @@ export function Collage() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           {newsItems.map((item, index) => (
             <motion.div
@@ -85,18 +85,18 @@ export function Collage() {
               >
                 <div className="relative">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/steve-aoki_banner-VNe8GyIao87LKssP3a2BvHYzNDIbbU.png"
+                    src="/assets/steve-aoki_banner.png"
                     alt={item.title}
                     className={`w-full object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale ${
                       index === 0 ? "h-64 lg:h-80" : "h-48"
                     }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-mono-heavy/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-mono-heavy/80 to-transparent scale-105" />
                   <div className="absolute top-4 left-4 flex gap-2">
                     <Badge className={getCategoryColor(item.category)}>{item.category}</Badge>
                   </div>
                   <div className="absolute bottom-4 right-4">
-                    <Badge variant="secondary" className="bg-mono-heavy/80 text-mono-light">
+                    <Badge variant="secondary" className="bg-mono-heavy/80 text-mono-light group-hover:bg-mono-light group-hover:text-mono-heavy group-hover:border-mono-heavy">
                       {new Date(item.date).toLocaleDateString()}
                     </Badge>
                   </div>
@@ -138,7 +138,7 @@ export function Collage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <Button
             size="lg"

@@ -23,7 +23,7 @@ export function Cards() {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
@@ -56,7 +56,7 @@ export function Cards() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           {guardianClasses.map((guardian, index) => (
             <motion.div
@@ -69,18 +69,18 @@ export function Cards() {
               <Card className="overflow-hidden group h-full transition-all duration-300 hover:opacity-90 bg-mono-heavy border-mono-mid">
                 <div className="relative">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/astro-boy_banner-nfWFnfklVAvUjVzjBfQaCHvRMhKwML.png"
+                    src="/assets/astro-boy_banner.png"
                     alt={guardian.className}
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700 filter grayscale"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-mono-heavy via-mono-heavy/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-mono-heavy via-mono-heavy/60 to-transparent scale-110" />
                   <motion.div
                     className="absolute top-4 left-4"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                   >
-                    <Badge className="text-lg px-3 py-1 bg-mono-light/20 text-mono-light border-mono-light/30">
+                    <Badge className="text-lg px-3 py-1 bg-mono-light/20 text-mono-light border-mono-light/30 group-hover:bg-mono-light group-hover:text-mono-heavy group-hover:border-mono-heavy">
                       {guardian.className}
                     </Badge>
                   </motion.div>
@@ -112,7 +112,7 @@ export function Cards() {
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.4, delay: index * 0.2 + abilityIndex * 0.1 }}
                         >
-                          <Badge variant="outline" className="text-xs border-mono-mid text-mono-mid">
+                          <Badge variant="outline" className="text-xs border-mono-mid text-mono-mid group-hover:bg-mono-light group-hover:text-mono-heavy group-hover:border-mono-heavy">
                             {ability}
                           </Badge>
                         </motion.div>

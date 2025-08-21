@@ -23,7 +23,7 @@ export function MultipleCTA() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
@@ -52,7 +52,7 @@ export function MultipleCTA() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           <h2
             className="text-4xl md:text-5xl font-black mb-4 text-mono-light uppercase"
@@ -71,7 +71,7 @@ export function MultipleCTA() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           {gameModes.map((mode) => (
             <motion.div
@@ -80,14 +80,14 @@ export function MultipleCTA() {
               whileHover={{ y: -10, scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="overflow-hidden group transition-all duration-300 bg-mono-heavy border-mono-mid hover:bg-mono-light hover:border-mono-heavy">
+              <Card className="overflow-hidden group transition-all duration-300 bg-mono-heavy border-mono-mid ">
                 <div className="relative">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/astro-boy_banner-nfWFnfklVAvUjVzjBfQaCHvRMhKwML.png"
+                    src="/assets/astro-boy_banner.png"
                     alt={mode.name}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-mono-heavy via-mono-heavy/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-mono-heavy via-mono-heavy/60 to-transparent scale-105" />
                   <div className="absolute top-4 right-4 flex gap-2">
                     <Badge className="bg-mono-mid/20 text-mono-mid border-mono-mid/30 group-hover:bg-mono-light group-hover:text-mono-heavy group-hover:border-mono-heavy transition-all duration-300">{mode.playerCount}</Badge>
                     <Badge className={getDifficultyColor(mode.difficulty)}>{mode.difficulty}</Badge>
@@ -96,7 +96,7 @@ export function MultipleCTA() {
 
                 <CardHeader>
                   <CardTitle
-                    className="text-2xl font-bold text-mono-light group-hover:text-mono-heavy transition-all duration-300"
+                    className="text-2xl font-bold text-mono-light transition-all duration-300"
                     style={{ fontFamily: "system-ui, sans-serif" }}
                   >
                     {mode.name}
@@ -105,7 +105,7 @@ export function MultipleCTA() {
 
                 <CardContent>
                   <CardDescription
-                    className="text-base leading-relaxed text-mono-mid group-hover:text-mono-heavy transition-all duration-300"
+                    className="text-base leading-relaxed text-mono-mid transition-all duration-300"
                     style={{ fontFamily: "system-ui, sans-serif" }}
                   >
                     {mode.description}
