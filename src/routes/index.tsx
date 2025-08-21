@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <div className="bg-[#111111] text-white">
+    <div className="bg-[#111111] text-white min-h-screen">
       <header className="fixed top-2 right-10 p-8 z-[100] cursor-auto">
         <button onClick={toggleView} className="pointer-events-auto cursor-pointer hover:opacity-80 transition-opacity duration-300">
         {showIntro ? (<Menu className="w-8 h-8" />) : (<SquareX className="w-8 h-8" />)}

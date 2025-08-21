@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from '@tanstack/react-router'
 import { useState, useEffect, useRef } from "react"
 import { Link } from "@tanstack/react-router"
 
@@ -9,6 +10,18 @@ const landingbg = "/assets/landingBG2.png"
 import { navItems } from "~/lib/data"
 
 export default function LandingPage() {
+
+  const router = useRouter()
+
+  useEffect(() => {
+    // Preload the collector route after a short delay
+    const timer = setTimeout(() => {
+      router.preloadRoute({ to: '/collector' })
+    }, 1000) // Wait 1s to let page settle first
+    
+    return () => clearTimeout(timer)
+  }, [router])
+
     // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     // const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
     const [isVideoLoaded, setIsVideoLoaded] = useState(false)
@@ -135,6 +148,7 @@ export default function LandingPage() {
             >
               <Link
                 to={item.link}
+                preload="intent"
                 className="text-wrap relative z-10 block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight text-white/70 transition-all duration-300 hover:text-white/90 hover:text-shadow-md hover:text-shadow-white/50 uppercase"
                 style={{
                   mixBlendMode: "difference",

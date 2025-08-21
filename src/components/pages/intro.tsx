@@ -65,7 +65,7 @@ export default function IntroPage({ onEnter }: IntroPageProps) {
       className="fixed inset-0 z-50 flex items-center justify-center bg-black cursor-auto"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 1, ease: "easeInOut" }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       {/* Video Background */}
       <video

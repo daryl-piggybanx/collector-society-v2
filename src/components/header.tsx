@@ -70,7 +70,10 @@ export default function Header() {
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <div className="absolute top-8 left-8 cursor-pointer hover:opacity-80 transition-opacity duration-300">
-                <Link to="/">
+                <Link 
+                  to="/"
+                  preload="intent"
+                >
                     <img
                         src="/assets/logo-white.png"
                         alt="Logo"
@@ -102,6 +105,7 @@ export default function Header() {
                   >
                     <Link
                       to={item.link}
+                      preload="intent"
                       className="relative z-10 block text-2xl font-light leading-tight text-white/70 transition-all duration-300 hover:text-white/90 uppercase"
                       onClick={handleDrawerClose}
                       style={{

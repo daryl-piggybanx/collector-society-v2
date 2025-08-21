@@ -98,7 +98,7 @@ export function Banner() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Join millions of players in Destiny 2, Bungie's action MMO. Create your Guardian and collect unique weapons to
+          Join hundreds of players in PTA 6, PiggyBanx's action MMO. Create your Collector and collect unique art pieces to
           prove yourself in competitive multiplayer, challenging PvE missions, and more.
         </motion.p>
 

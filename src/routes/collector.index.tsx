@@ -4,15 +4,56 @@ import { createFileRoute } from '@tanstack/react-router'
 import RedirectButtons from '~/components/redirect-buttons'
 import ActionButtons from '~/components/action-buttons'
 import SocialIcons from '~/components/social-icons'
-import { Suspense, lazy } from 'react'
+
+import { Suspense, lazy, useEffect } from 'react'
+import { useRouter } from '@tanstack/react-router'
+import { useGLTF } from '@react-three/drei'
 
 const StatueScene = lazy(() => import('~/components/scenes/statue'))
 
+async function preloadCollectorAssets() {
+  try {
+    // 1. Preload the main 3D model for the statue scene
+    useGLTF.preload('/assets/BoltLogo_Concrete3.glb')
+    return { success: true }
+  } catch (error) {
+    console.warn('Collector asset preloading failed:', error)
+    return { success: false }
+  }
+}
 export const Route = createFileRoute('/collector/')({
   component: RouteComponent,
+  loader: async () => {
+    await preloadCollectorAssets()
+    return null
+  },
 })
 
 function RouteComponent() {
+    const router = useRouter()
+
+    useEffect(() => {
+      const preloadAnnotationRoutes = async () => {
+        const routes = [
+          '/collector/new',
+          '/collector/waitlist', 
+          '/collector/discord',
+          '/collector/og'
+        ]
+        
+        // small delay to let 3D scene settle first
+        setTimeout(() => {
+          routes.forEach(route => {
+            router.preloadRoute({ to: route }).catch(() => {
+              // Silently handle preload failures
+            })
+          })
+        }, 1000) // 1 second delay
+      }
+  
+      preloadAnnotationRoutes()
+    }, [router])
+
     return (
       <main className="h-screen font-amiri text-white statue-custom-radial-gradient statue-custom-cursor">
         <Suspense fallback={<div className="h-screen w-full bg-gradient-to-b from-gray-900 to-black" />}>
