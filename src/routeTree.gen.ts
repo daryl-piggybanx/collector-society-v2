@@ -12,6 +12,7 @@ import { createServerRootRoute } from '@tanstack/react-start/server'
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RedirectRouteImport } from './routes/redirect'
+import { Route as PiggyverseRouteImport } from './routes/piggyverse'
 import { Route as EthosRouteImport } from './routes/ethos'
 import { Route as DeferredRouteImport } from './routes/deferred'
 import { Route as PathlessLayoutRouteImport } from './routes/_pathlessLayout'
@@ -43,6 +44,11 @@ const rootServerRouteImport = createServerRootRoute()
 const RedirectRoute = RedirectRouteImport.update({
   id: '/redirect',
   path: '/redirect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PiggyverseRoute = PiggyverseRouteImport.update({
+  id: '/piggyverse',
+  path: '/piggyverse',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EthosRoute = EthosRouteImport.update({
@@ -178,6 +184,7 @@ export interface FileRoutesByFullPath {
   '/users': typeof UsersRouteRouteWithChildren
   '/deferred': typeof DeferredRoute
   '/ethos': typeof EthosRoute
+  '/piggyverse': typeof PiggyverseRoute
   '/redirect': typeof RedirectRoute
   '/collector/discord': typeof CollectorDiscordRoute
   '/collector/new': typeof CollectorNewRoute
@@ -200,6 +207,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/deferred': typeof DeferredRoute
   '/ethos': typeof EthosRoute
+  '/piggyverse': typeof PiggyverseRoute
   '/redirect': typeof RedirectRoute
   '/collector/discord': typeof CollectorDiscordRoute
   '/collector/new': typeof CollectorNewRoute
@@ -226,6 +234,7 @@ export interface FileRoutesById {
   '/_pathlessLayout': typeof PathlessLayoutRouteWithChildren
   '/deferred': typeof DeferredRoute
   '/ethos': typeof EthosRoute
+  '/piggyverse': typeof PiggyverseRoute
   '/redirect': typeof RedirectRoute
   '/_pathlessLayout/_nested-layout': typeof PathlessLayoutNestedLayoutRouteWithChildren
   '/collector/discord': typeof CollectorDiscordRoute
@@ -253,6 +262,7 @@ export interface FileRouteTypes {
     | '/users'
     | '/deferred'
     | '/ethos'
+    | '/piggyverse'
     | '/redirect'
     | '/collector/discord'
     | '/collector/new'
@@ -275,6 +285,7 @@ export interface FileRouteTypes {
     | '/'
     | '/deferred'
     | '/ethos'
+    | '/piggyverse'
     | '/redirect'
     | '/collector/discord'
     | '/collector/new'
@@ -300,6 +311,7 @@ export interface FileRouteTypes {
     | '/_pathlessLayout'
     | '/deferred'
     | '/ethos'
+    | '/piggyverse'
     | '/redirect'
     | '/_pathlessLayout/_nested-layout'
     | '/collector/discord'
@@ -327,6 +339,7 @@ export interface RootRouteChildren {
   PathlessLayoutRoute: typeof PathlessLayoutRouteWithChildren
   DeferredRoute: typeof DeferredRoute
   EthosRoute: typeof EthosRoute
+  PiggyverseRoute: typeof PiggyverseRoute
   RedirectRoute: typeof RedirectRoute
   CollectorDiscordRoute: typeof CollectorDiscordRoute
   CollectorNewRoute: typeof CollectorNewRoute
@@ -371,6 +384,13 @@ declare module '@tanstack/react-router' {
       path: '/redirect'
       fullPath: '/redirect'
       preLoaderRoute: typeof RedirectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/piggyverse': {
+      id: '/piggyverse'
+      path: '/piggyverse'
+      fullPath: '/piggyverse'
+      preLoaderRoute: typeof PiggyverseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ethos': {
@@ -632,6 +652,7 @@ const rootRouteChildren: RootRouteChildren = {
   PathlessLayoutRoute: PathlessLayoutRouteWithChildren,
   DeferredRoute: DeferredRoute,
   EthosRoute: EthosRoute,
+  PiggyverseRoute: PiggyverseRoute,
   RedirectRoute: RedirectRoute,
   CollectorDiscordRoute: CollectorDiscordRoute,
   CollectorNewRoute: CollectorNewRoute,

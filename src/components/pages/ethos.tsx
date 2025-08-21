@@ -137,7 +137,7 @@ export default function Ethos() {
             {/* Stacked sections container */}
             <div ref={containerRef} className="relative border-none bg-transparent">
                 {sections.map((Section, index) => (
-                    <Card key={index} className="border-none shadow-none">
+                    <Card key={index} className="border-none shadow-none p-0">
                         <Section index={index} />
                     </Card>
                 ))}

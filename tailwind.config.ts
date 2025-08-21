@@ -103,6 +103,9 @@ const config = {
         "stone-gray": "#C8C3BB",
         "accent-red": "#F2280B",
         "off-white": "#ECEBEB",
+        "mono-light": "#f6f3e1",
+        "mono-mid": "#b0ada0",
+        "mono-heavy": "#242421",
       },
       borderRadius: {
         lg: "var(--radius)",

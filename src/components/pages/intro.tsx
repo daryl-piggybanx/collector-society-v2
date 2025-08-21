@@ -25,9 +25,6 @@ type IntroPageProps = {
 
 export default function IntroPage({ onEnter }: IntroPageProps) {
 
-
-
-
   const [isVideoLoaded, setIsVideoLoaded] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 

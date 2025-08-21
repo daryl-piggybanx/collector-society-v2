@@ -66,6 +66,16 @@ code {
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.871 0.006 286.286);
+
+  /* custom monochromatic colors */
+  --mono-light: #f6f3e1;
+  --mono-mid: #b0ada0;
+  --mono-heavy: #242421;
+
+  /* dark glass tile grid pattern with shimmer effect */
+  --grid-bg: #242421;
+  --grid-color: rgba(255, 255, 255, 0.1);
+  --grid-size: 40px;
 }
 
 .dark {
@@ -182,4 +192,111 @@ code {
   background: rgba(255, 255, 255, 0.5);
   color: #000;
   border: 1px solid #000;
+}
+
+/* Grid Background + Shimmer Overlay */
+
+.bg-grid-pattern {
+  background-color: var(--grid-bg);
+  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(30, 30, 30, 0) 0%, rgba(15, 15, 15, 0.8) 100%);
+  pointer-events: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -10;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.grid-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  animation: shimmer 3s infinite;
+  transform: translateX(-100%);
+}
+
+.grid-item:nth-child(2)::after {
+  animation-delay: 0.5s;
+}
+
+.grid-item:nth-child(3)::after {
+  animation-delay: 1s;
+}
+
+.grid-item:nth-child(4)::after {
+  animation-delay: 1.5s;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  20%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 8s infinite linear;
+  pointer-events: none;
+}
+
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: center center;
+  pointer-events: none;
 }
