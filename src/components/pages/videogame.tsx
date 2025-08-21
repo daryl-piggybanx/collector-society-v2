@@ -21,7 +21,7 @@ export default function VideoGame() {
   
         <div className="shimmer-overlay" />
   
-        <div className="grid-lines" />
+        {/* <div className="grid-lines" /> */}
         <div className="relative z-10">
             <Banner />
             <MultipleCTA />

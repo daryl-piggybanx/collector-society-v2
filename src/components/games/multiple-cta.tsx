@@ -45,7 +45,7 @@ export function MultipleCTA() {
   }
 
   return (
-    <section id="game" className="py-20 px-4 sm:px-6 lg:px-8 bg-mono-heavy">
+    <section id="game" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-mono-heavy from-50% via-mono-heavy/50 via-70% to-mono-light/50 to-90%">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -58,7 +58,7 @@ export function MultipleCTA() {
             className="text-4xl md:text-5xl font-black mb-4 text-mono-light uppercase"
             style={{ fontFamily: "system-ui, sans-serif" }}
           >
-            Collectible <span className="text-mono-mid">Art</span>
+            Crucible <span className="text-mono-mid">of Art</span>
           </h2>
           <p className="text-xl max-w-3xl mx-auto text-mono-mid" style={{ fontFamily: "system-ui, sans-serif" }}>
             From cooperative raids to competitive crucible matches, discover the activities that define your Guardian's

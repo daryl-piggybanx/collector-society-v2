@@ -30,7 +30,7 @@ export function Cards() {
   }
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-mono-heavy/30">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-bl from-mono-light/50 from-10% via-mono-heavy/60 via-30% to-heavy to-90%">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -43,10 +43,10 @@ export function Cards() {
             className="text-4xl md:text-5xl font-black mb-4 text-mono-light"
             style={{ fontFamily: "system-ui, sans-serif" }}
           >
-            FORGE YOUR <span className="text-mono-mid">GUARDIAN</span>
+            DEFINE YOUR <span className="text-mono-mid text-shadow-lg text-shadow-black">COLLECTION</span>
           </h2>
           <p className="text-xl max-w-3xl mx-auto text-mono-mid" style={{ fontFamily: "system-ui, sans-serif" }}>
-            Choose from three unique Guardian classes, each with their own abilities, playstyles, and role in the fight
+            Choose from three unique art pieces, each with their own abilities, playstyles, and role in the fight
             against the Darkness.
           </p>
         </motion.div>

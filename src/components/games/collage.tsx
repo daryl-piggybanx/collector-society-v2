@@ -122,7 +122,7 @@ export function Collage() {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                     <Button
                       variant="outline"
-                      className="w-full bg-transparent hover:opacity-80 transition-opacity border-mono-mid text-mono-mid"
+                      className="w-full bg-transparent hover:opacity-80 transition-opacity border-mono-mid text-mono-mid hover:bg-mono-light hover:text-mono-heavy hover:border-mono-heavy"
                     >
                       Read More
                     </Button>

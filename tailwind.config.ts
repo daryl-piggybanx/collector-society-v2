@@ -126,9 +126,29 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      textShadow: {
+        'sm': '1px 1px 2px rgba(0, 0, 0, 0.5)',
+        'md': '2px 2px 4px rgba(0, 0, 0, 0.5)',
+        'lg': '3px 3px 6px rgba(0, 0, 0, 0.5)',
+        'mono-heavy': '2px 2px 4px #242421',
+        'mono-mid': '2px 2px 4px #b0ada0',
+        'mono-light': '2px 2px 4px #f6f3e1',
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function({ matchUtilities, theme }: any) {
+      matchUtilities(
+        {
+          'text-shadow': (value: string) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme('textShadow') }
+      )
+    },
+  ],
 } satisfies Config
 
 export default config
