@@ -3,7 +3,7 @@ export const navItems = [
   { name: "Collector Applications", image: "/assets/landing_hover_black-white_2.jpg", link: "/collector" },
   { name: "Drop Site", image: "/assets/landing_hover_black-white_3.jpg", link: "https://piggybanxinc.com" },
   { name: "PiggyVerse", image: "/assets/landing_hover_black-white_1.jpg", link: "/piggyverse" },
-  { name: "The Knights", image: "/assets/landing_hover_black-white_2.jpg", link: "/knights-of-the-roundtable" },
+  { name: "The Knights", image: "/assets/landing_hover_black-white_2.jpg", link: "/knights" },
 ]
 
 // temp data file for collector form

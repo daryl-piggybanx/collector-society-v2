@@ -106,6 +106,7 @@ const config = {
         "mono-light": "#f6f3e1",
         "mono-mid": "#b0ada0",
         "mono-heavy": "#242421",
+        "brutal-mid": "#b0ada0",
       },
       borderRadius: {
         lg: "var(--radius)",
