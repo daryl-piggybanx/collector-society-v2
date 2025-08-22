@@ -17,11 +17,8 @@ export default function BrutalistGallery() {
     const isImageInView = useInView(imageRef, { once: false, amount: 0.3 })
     const isTextInView = useInView(textRef, { once: false, amount: 0.3 })
     
-    const firstImageOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1])
-    const secondImageOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
 
     useMotionValueEvent(scrollYProgress, "change", (latestValue: number) => {
-        console.log("Scroll progress:", latestValue)
     })
 
   return (
@@ -37,7 +34,7 @@ export default function BrutalistGallery() {
             className="w-full opacity-20 h-full object-contain z-20 absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 translate-x-4"
           /> */}
           <img
-            src={brutalKnight}
+            src={brutalKnightRemoveBG}
             alt="BRUTALIST KNIGHT"
             width={1000}
             height={1000}

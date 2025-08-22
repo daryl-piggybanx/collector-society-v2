@@ -16,9 +16,7 @@ export default function BrutalistHeader() {
 
       <nav className="absolute top-1/2 left-8 -translate-y-1/2">
         <div className="space-y-4 text-sm font-mono">
-          <div>THE KNIGHTS</div>
-          <div>THE SWORDS</div>
-          <div>THE TABLE</div>
+
         </div>
       </nav>
 

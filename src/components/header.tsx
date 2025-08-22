@@ -6,8 +6,11 @@ import { motion, AnimatePresence } from "motion/react"
 import { Link } from "@tanstack/react-router"
 import { navItems } from "~/lib/data"
 
+import logoWhite from "~/assets/logo-white.png"
+import logoBlack from "~/assets/logo-black.png"
 
-export default function Header() {
+
+export default function Header({ theme = "light" }: { theme?: "dark" | "light" }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
@@ -38,7 +41,7 @@ export default function Header() {
       <header className="fixed top-2 left-10 p-8 z-50">
         <button onClick={handleDrawerOpen} className="pointer-events-auto cursor-pointer hover:opacity-80 transition-opacity duration-300">
           <img
-            src="/assets/logo-white.png"
+            src={theme === "dark" ? logoBlack : logoWhite}
             alt="Logo"
             width={32}
             height={32}
