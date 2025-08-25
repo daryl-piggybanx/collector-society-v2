@@ -1,6 +1,6 @@
 import { Suspense, useRef, useEffect } from 'react'
 import { Canvas, useFrame, type ThreeElements } from '@react-three/fiber'
-import { useGLTF, SoftShadows, Html, CameraControls, RoundedBox } from '@react-three/drei'
+import { useGLTF, SoftShadows, Html, CameraControls, OrbitControls, RoundedBox } from '@react-three/drei'
 import { easing } from 'maath'
 import { Group, SpotLight, Mesh } from 'three'
 import { useNavigate } from '@tanstack/react-router'            
@@ -76,11 +76,12 @@ export default function StatueScene() {
         useDeviceControl={hasPermission || false}
       />
       <SoftShadows samples={25} />
-      <CameraControls 
+      <OrbitControls 
         minPolarAngle={Math.PI / 8} 
         maxPolarAngle={Math.PI / 2} 
         minAzimuthAngle={-Math.PI / 4} 
         maxAzimuthAngle={Math.PI / 4} 
+        enableZoom={false}
       />
       </Canvas>
   )
@@ -175,7 +176,7 @@ function Annotation({ children, ...props }: AnnotationProps) {
         <RoundedBox args={[1.66, 0.47, 2]} />
       }>
       <div 
-        className="cursor-pointer outline-none border-none text-[8px] font-light bg-black text-white px-2.5 py-0.5 rounded-3xl tracking-wide flex justify-center items-center gap-1.5 opacity-100 overflow-hidden w-full annotation-hover" 
+        className="cursor-pointer outline-none border-none text-sm sm:text-md font-light bg-black text-white px-2.5 py-0.5 rounded-3xl tracking-wide flex justify-center items-center gap-1.5 opacity-100 overflow-hidden w-full annotation-hover" 
       onClick={() => navigate({ to: props.href })}
       style={{
         textShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
